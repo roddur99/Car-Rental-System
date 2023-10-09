@@ -33,29 +33,22 @@ Views:
 
 ## Functions of the GUI
 - add_new_cust():
-  - Function for adding new customer using provided customer name and phone number. Customer ID is generated through increment from the last entry.
+  - Function for adding new customers using user-provided customer name and phone number.
+  - Executes an INSERT INTO SQL statement into the 'Customer' table
+  - Customer ID is generated through increment from the last entry.
 - see_cust():
-
-This function is used to view all customers in the database.
-It connects to the 'CarRental.db' SQLite database.
-It retrieves customer data from the 'Customer' table and displays it in a new window using Tkinter.
-add_new_vehicle():
-
-This function is used to add a new vehicle to the database.
-It connects to the 'CarRental.db' SQLite database.
-It inserts a new vehicle into the 'Vehicle' table with the provided vehicle ID, description, year, type, and category.
-see_vehicle():
-
-This function is used to view all vehicles in the database.
-It connects to the 'CarRental.db' SQLite database.
-It retrieves vehicle data from the 'Vehicle' table and displays it in a new window using Tkinter.
-add_new_rental():
-
-This function is used to add a new rental record to the database.
-It connects to the 'CarRental.db' SQLite database.
-It checks if the specified vehicle is available for rental by querying the 'Rental' and 'Vehicle' tables.
-If the vehicle is available, it inserts a new rental record into the 'Rental' table with the provided customer ID, vehicle ID, rental start date, order date, rental type, quantity, return date, total amount, payment date, and sets the return status to 0.
-available_cars():
+  - Function for viewing all customer records in the database
+  - Executes a SELECT statement from the 'Customer' table.
+- add_new_vehicle():
+  - Function for adding new vehicles using user-provided vehicle ID, description, year, type, and category.
+  - Executes an INSERT INTO SQL statement into the 'Vehicle' table
+- see_vehicle():
+  - Function for viewing all vehicle records in the database
+  - Executes a SELECT statement from the 'Vehicle' table.
+- add_new_rental():
+  - Function adds a new rental record.
+  - Checks whether the vehicle asked by the user is available or not using Vehicle ID. If available, a new record is added and a confirmation message is printed on-screen.
+- available_cars():
 
 This function is used to display a list of available cars for rental.
 It connects to the 'CarRental.db' SQLite database.
