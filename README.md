@@ -36,35 +36,40 @@ Views:
   - Function for adding new customers using user-provided customer name and phone number.
   - Executes an INSERT INTO SQL statement into the 'Customer' table
   - Customer ID is generated through increment from the last entry.
+    
 - see_cust():
   - Function for viewing all customer records in the database
   - Executes a SELECT statement from the 'Customer' table.
+    
 - add_new_vehicle():
   - Function for adding new vehicles using user-provided vehicle ID, description, year, type, and category.
-  - Executes an INSERT INTO SQL statement into the 'Vehicle' table
+  - Executes an INSERT INTO SQL statement into the 'Vehicle' table.
+    
 - see_vehicle():
   - Function for viewing all vehicle records in the database
   - Executes a SELECT statement from the 'Vehicle' table.
+    
 - add_new_rental():
   - Function adds a new rental record.
-  - Checks whether the vehicle asked by the user is available or not using Vehicle ID. If available, a new record is added and a confirmation message is printed on-screen.
+  - Checks whether the vehicle asked by the user is available or not using Vehicle ID. If available, a new record is added, return status is set to 0, and a confirmation message is printed on-screen.
+    
 - available_cars():
+  - Function for seeing available cars for rental
+  - SQL view 'Unavailable_cars' is used to retrieve unavailable cars and SELECT statements are used to get cars that are NOT IN 'Unavailable_cars'.
+    
+- rental_return():
+  - Function that calculates the amount owed.
+  - Updates returned rentals by setting return status to 1.
+  
+- search_cust():
+  - Function for searching customer in 'vRentalInfo' view.
+  - Search is based on Customer ID and Name
 
-This function is used to display a list of available cars for rental.
-It connects to the 'CarRental.db' SQLite database.
-It uses a SQL view named 'Unavailable_Cars' to find unavailable cars and displays the available ones in a Tkinter window.
-rental_return():
+- search_vehicle():
+  - Function for searching customer in 'vRentalInfo' view.
+  - Search is based on Vehicle ID and Description
 
-This function is used to calculate and display the total amount due for rentals based on various search criteria.
-It connects to the 'CarRental.db' SQLite database.
-It calculates the total amount due for rentals based on the specified search criteria (return date, customer name, VIN, vehicle, type, category) and updates the 'Rental' table by setting the return status to 1 for the returned rentals.
-search_cust():
-
-This function is used to search for customers in the 'vRentalInfo' view based on customer ID and name.
-It connects to the 'CarRental.db' SQLite database.
-It constructs a SQL query based on the provided customer ID and name, retrieves the results, and displays them in a Tkinter window.
-search_vehicle():
-
-This function is used to search for vehicles in the 'vRentalInfo' view based on VIN and vehicle description.
-It connects to the 'CarRental.db' SQLite database.
-It constructs a SQL query based on the provided VIN and description, retrieves the results, and displays them in a Tkinter window.
+## How to run
+- Required libraries: Tkinter, sqlite3
+- Run on Anaconda Prompt or any terminal that supports running python scripts, eg:
+   ```python car_rental_gui.py```
