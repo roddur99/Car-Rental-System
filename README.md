@@ -1,2 +1,3 @@
-# carrentalsys
-Car rental database with interactive GUI for record viewing and entry
+# Car Rental System
+
+## Components of the project
